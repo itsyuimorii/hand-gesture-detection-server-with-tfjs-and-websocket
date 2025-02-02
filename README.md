@@ -14,3 +14,6 @@ https://github.com/charliegerard/hand-control-figma-plugin/tree/main/figma-plugi
 https://x.com/adispezio/status/1440153362872221701
 
 https://charliegerard.dev/blog/hand-control-ui-figma-plugin/
+
+
+https://github.com/tensorflow/tfjs-models/tree/master/hand-pose-detection/src/tfjs

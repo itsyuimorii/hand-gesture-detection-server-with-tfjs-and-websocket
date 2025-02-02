@@ -4,27 +4,34 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mediapipe/hands": "^0.4.1675469240",
+    "@tensorflow-models/hand-pose-detection": "^2.0.1",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.22.0",
+    "@tensorflow/tfjs-converter": "^4.22.0",
+    "@tensorflow/tfjs-core": "^4.22.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
+    "react-webcam": "^7.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": {
+      "appId": "com.itsyuimorii.hand-gesture-detection-server",
+      "productName": "Hand Gesture Detection Server",
+      "directories": {
+        "output": "dist"
+      }
+    },
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-dev": "NODE_ENV=development electron .",
-    "dist": "electron-builder",
-    "build": {
-    "appId": "com.itsyuimorii.hand-gesture-detection-server",
-    "productName": "Hand Gesture Detection Server",
-    "directories": {
-      "output": "dist"
-    }}
+    "dist": "electron-builder"
   },
   "eslintConfig": {
     "extends": [
