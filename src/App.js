@@ -23,7 +23,7 @@ const App = () => {
       loadedHandModel,
       detectorConfig
     );
- 
+
     setInterval(async () => {
       await detectModel(detector);
     }, (1 / 30) * 1000);
@@ -58,20 +58,23 @@ const App = () => {
       // const mapGestures = [{hND: "Hnd1", gest: ["HandUp", jumptata]}, {hND: "Hnd2", gest: "HandUp"}];
       const mapGestures = [];
 
-        hands.forEach((hand) => {
+      hands.forEach((hand) => {
         const GE = new fp.GestureEstimator([HandUp]);
         const gesturePrediction = GE.estimate(hand.keypoints3D, 8.9);
         console.log("🚀 ~ useDetect ~ gesturePrediction:", gesturePrediction);
 
-        if(gesturePrediction.gestures.length > 0){
-        mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures });
+        if (gesturePrediction.gestures.length > 0) {
+          mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures });
         }
-      }); 
-        // sendWSNotification(mapGestures); 
-    
-        const ctx = canvasRef.current.getContext("2d");
-        drawHand(hands, ctx);
+      });
+      // sendWSNotification(mapGestures); 
+
+      if (window.electron && mapGestures.length > 0) {
+        window.electron.sendHandGestureNotification()
       }
+      const ctx = canvasRef.current.getContext("2d");
+      drawHand(hands, ctx);
+    }
   };
 
 
