@@ -3,8 +3,12 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const WebSocket = require('ws');
 
+//TODO: adding method once in Production
 // const isDev = process.env.NODE_ENV === 'development';
-const isDev = true;
+require('dotenv').config();  
+const isDev = process.env.NODE_ENV === 'development';
+
+
 let mainWindow;
 
 // ** Initialize WebSocket Server Inside Electron **
@@ -21,11 +25,13 @@ wss.on('connection', (ws) => {
 });
 
 // ** Function to Send Notifications to All Clients **
-function sendHandGestureNotification() {
+function sendHandGestureNotification(event, gestureData) {
   wss.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {
-      console.log("sendHandGestureNotification")
-      client.send("Sending notification to clients");
+      // console.log("sendHandGestureNotification")
+      // console.log("🚀 ~ wss.clients.forEach ~ gestureData:", gestureData)
+      const message = JSON.stringify(gestureData)
+      client.send(message);
     }
   });
 }

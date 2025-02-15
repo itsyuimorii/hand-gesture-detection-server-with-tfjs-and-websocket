@@ -54,7 +54,6 @@ const App = () => {
         flipHorizontal: false,
       });
 
-
       // const mapGestures = [{hND: "Hnd1", gest: ["HandUp", jumptata]}, {hND: "Hnd2", gest: "HandUp"}];
       const mapGestures = [];
 
@@ -70,7 +69,7 @@ const App = () => {
       // sendWSNotification(mapGestures); 
 
       if (window.electron && mapGestures.length > 0) {
-        window.electron.sendHandGestureNotification()
+        window.electron.sendHandGestureNotification(mapGestures)
       }
       const ctx = canvasRef.current.getContext("2d");
       drawHand(hands, ctx);

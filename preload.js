@@ -1,5 +1,5 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electron", {
-  sendHandGestureNotification: () => ipcRenderer.send("send-hand-gesture-notification"),
+  sendHandGestureNotification: (gestureData) => ipcRenderer.send("send-hand-gesture-notification", gestureData),
 });
