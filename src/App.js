@@ -6,7 +6,9 @@ import Webcam from "react-webcam";
 import * as fp from "fingerpose";
 import { useRef } from "react";
 import { drawHand } from "./components/utils";
-import HandUp from "./gestures/handUp";
+import okSign from "./gestures/okSign";
+import pinchSign from "./gestures/pinchSign";
+import uSign from "./gestures/uSign";
 
 const App = () => {
   const webcamRef = useRef(null);
@@ -59,16 +61,17 @@ const App = () => {
       // const mapGestures = [{hND: "Hnd1", gest: ["HandUp", jumptata]}, {hND: "Hnd2", gest: "HandUp"}];
       const mapGestures = [];
       hands.forEach((hand) => {
-        const GE = new fp.GestureEstimator([HandUp]);
+        const GE = new fp.GestureEstimator([uSign, okSign, pinchSign]);
 
         const gesturePrediction = GE.estimate(hand.keypoints3D, 8.9);
-
-        
+        console.log("🚀 ~ hands.forEach ~ gesturePrediction:", gesturePrediction)
+        console.log("🚀 ~ hands.forEach ~ test:", JSON.stringify(gesturePrediction.gestures))
+        console.log("🚀 ~ hands.forEach ~ JSON.stringify(gesturePrediction.poseData):", JSON.stringify(gesturePrediction.poseData))
         if (gesturePrediction.gestures.length > 0) {
           mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures });
         }
       });
-      
+
       // sendWSNotification(mapGestures); 
       if (window.electron && mapGestures.length > 0) {
         window.electron.sendHandGestureNotification(mapGestures)

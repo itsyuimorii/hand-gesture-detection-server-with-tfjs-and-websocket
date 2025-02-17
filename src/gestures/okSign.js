@@ -1,31 +1,37 @@
 import { Finger, FingerCurl, FingerDirection } from "fingerpose";
 import { GestureDescription } from "fingerpose";
 
-const OkSign = new GestureDescription("OK_SIGN");
+const okSign = new GestureDescription("OK_SIGN");
 
 /**
- * [["Thumb","No Curl","Diagonal Up Right"],
- * ["Index","Half Curl","Diagonal Up Right"],
- * ["Middle","No Curl","Vertical Up"],
- * ["Ring","No Curl","Vertical Up"],
- * ["Pinky","No Curl","Vertical Up"]]
+ * 
+[["Thumb", "No Curl", "Horizontal Right"], 
+["Index", "Half Curl", "Horizontal Right"], 
+["Middle", "Half Curl", "Horizontal Right"], ["Ring", "Half Curl", "Horizontal Right"], ["Pinky", "Half Curl", "Horizontal Right"]]
  */
 
 //Thumb
-OkSign.addCurl(Finger.Thumb, FingerCurl.NoCurl, FingerDirection.DiagonalUpRight, 1.0);
-
+okSign.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1.0)
+okSign.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 1.0);
+okSign.addDirection(Finger.Thumb, FingerDirection.HorizontalRight, 0.9);
+okSign.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 1.0);
+okSign.addDirection(Finger.Thumb, FingerDirection.HorizontalLeft, 0.9);
 //Index
-OkSign.addCurl(Finger.Index, FingerCurl.HalfCurl, FingerDirection.DiagonalUpRight, 1.0)
+okSign.addCurl(Finger.Index, FingerCurl.HalfCurl, 1.0)
+okSign.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 1.0)
+okSign.addDirection(Finger.Index, FingerDirection.HorizontalRight, 0.9)
+okSign.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 1.0)
+okSign.addDirection(Finger.Index, FingerDirection.HorizontalLeft, 0.9)
 
-//Rest of fingers
 for (let finger of [
     Finger.Middle,
     Finger.Ring,
     Finger.Pinky,
 ]) {
-    OkSign.addDirection(finger, FingerDirection.VerticalUp, 1.0);
-    OkSign.addDirection(finger, FingerDirection.VerticalUp, 1.0);
-    OkSign.addDirection(finger, FingerDirection.VerticalUp, 1.0);
+    okSign.addCurl(finger, FingerCurl.NoCurl, 1.0);
+    okSign.addDirection(finger, FingerDirection.VerticalUp, 1.0);
+    okSign.addDirection(finger, FingerDirection.DiagonalUpRight, 0.9);
+    okSign.addDirection(finger, FingerDirection.DiagonalUpLeft, 0.9);
 }
 
-export default OkSign;
+export default okSign;
