@@ -1,8 +1,15 @@
 import { Finger, FingerCurl, FingerDirection } from "fingerpose";
 import { GestureDescription } from "fingerpose";
 
-// Define "jump" gesture where all fingers are up
 const HandUp = new GestureDescription("HAND_UP");
+
+/**
+ * [["Thumb","No Curl","Diagonal Up Right"],
+ * ["Index","No Curl","Diagonal Up Right"],
+ * ["Middle","No Curl","Diagonal Up Right"],
+ * ["Ring","No Curl","Diagonal Up Right"],
+ * ["Pinky","No Curl","Vertical Up"]]
+ */
 
 // All fingers: Fully extended and pointing up
 for (let finger of [

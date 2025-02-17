@@ -58,16 +58,18 @@ const App = () => {
 
       // const mapGestures = [{hND: "Hnd1", gest: ["HandUp", jumptata]}, {hND: "Hnd2", gest: "HandUp"}];
       const mapGestures = [];
-
       hands.forEach((hand) => {
         const GE = new fp.GestureEstimator([HandUp]);
+
         const gesturePrediction = GE.estimate(hand.keypoints3D, 8.9);
+
+        
         if (gesturePrediction.gestures.length > 0) {
           mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures });
         }
       });
+      
       // sendWSNotification(mapGestures); 
-
       if (window.electron && mapGestures.length > 0) {
         window.electron.sendHandGestureNotification(mapGestures)
       }
@@ -83,7 +85,6 @@ const App = () => {
         ref={webcamRef}
         mirrored={true}
         style={{
-          
           position: "absolute",
           marginLeft: "auto",
           marginRight: "auto",
