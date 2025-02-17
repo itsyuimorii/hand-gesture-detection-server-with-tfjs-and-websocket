@@ -28,8 +28,6 @@ wss.on('connection', (ws) => {
 function sendHandGestureNotification(event, gestureData) {
   wss.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {
-      // console.log("sendHandGestureNotification")
-      // console.log("🚀 ~ wss.clients.forEach ~ gestureData:", gestureData)
       const message = JSON.stringify(gestureData)
       client.send(message);
     }

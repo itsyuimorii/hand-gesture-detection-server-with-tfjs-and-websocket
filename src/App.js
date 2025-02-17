@@ -16,12 +16,14 @@ const App = () => {
     const loadedHandModel = await handPoseDetection.SupportedModels
       .MediaPipeHands;
 
-    const detectorConfig = {
+    const estimationConfig = {
       runtime: "tfjs",
+      flipHorizontal: true
     };
+
     const detector = await handPoseDetection.createDetector(
       loadedHandModel,
-      detectorConfig
+      estimationConfig
     );
 
     setInterval(async () => {
@@ -51,7 +53,7 @@ const App = () => {
 
       //Make Detections
       const hands = await detector.estimateHands(video, {
-        flipHorizontal: false,
+        flipHorizontal: true,
       });
 
       // const mapGestures = [{hND: "Hnd1", gest: ["HandUp", jumptata]}, {hND: "Hnd2", gest: "HandUp"}];
@@ -60,8 +62,6 @@ const App = () => {
       hands.forEach((hand) => {
         const GE = new fp.GestureEstimator([HandUp]);
         const gesturePrediction = GE.estimate(hand.keypoints3D, 8.9);
-        console.log("🚀 ~ useDetect ~ gesturePrediction:", gesturePrediction);
-
         if (gesturePrediction.gestures.length > 0) {
           mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures });
         }
@@ -81,7 +81,9 @@ const App = () => {
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <Webcam
         ref={webcamRef}
+        mirrored={true}
         style={{
+          
           position: "absolute",
           marginLeft: "auto",
           marginRight: "auto",

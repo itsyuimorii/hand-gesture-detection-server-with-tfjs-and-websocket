@@ -13,10 +13,16 @@ export const drawHand = (predictions, ctx) => {
   if (!predictions || predictions.length === 0) return;
   predictions.forEach((prediction) => {
     const keypoints = prediction.keypoints;
+    const handedness = prediction.handedness
+    let handDrawColor;
+    if(handedness ==="Left"){
+       handDrawColor = "plum";
+    }else{
+      handDrawColor = "red"
+    }
     if (!keypoints || keypoints.length === 0) return;
 
     //loop through fingers
-
     for (let j = 0; j < Object.keys(fingerJoints).length; j++) {
       let finger = Object.keys(fingerJoints)[j];
       for (let k = 0; k < fingerJoints[finger].length - 1; k++) {
@@ -31,7 +37,7 @@ export const drawHand = (predictions, ctx) => {
           keypoints[secondJointIndex].x,
           keypoints[secondJointIndex].y
         );
-        ctx.strokeStyle = "plum";
+        ctx.strokeStyle = handDrawColor;
         ctx.lineWidth = 4;
         ctx.stroke();
       }
