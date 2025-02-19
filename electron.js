@@ -21,7 +21,7 @@ wss.on('connection', (ws) => {
     console.log('Received:', data);
     sendHandGestureNotification();
   });
-  ws.send('Welcome to the WebSocket server!');
+  // ws.send('Welcome to the WebSocket server!');
 });
 
 // ** Function to Send Notifications to All Clients **
