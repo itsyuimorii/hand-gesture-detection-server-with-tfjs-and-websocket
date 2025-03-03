@@ -9,8 +9,11 @@ import { drawHand } from "./components/utils";
 import okSign from "./gestures/okSign";
 import uSign from "./gestures/uSign";
 import wSign from "./gestures/wSign";
-import dragSign from "./gestures/dragSign"
-import fourSign from "./gestures/fourSign";
+import fourFingerUpSign from "./gestures/fourFingerUpSign";
+import fullHandUp from "./gestures/fullHandUp";
+import pinchSign from "./gestures/pinchSign"
+import fistSign from "./gestures/fistSign";
+
 
 const App = () => {
   const webcamRef = useRef(null);
@@ -63,7 +66,7 @@ const App = () => {
       // const mapGestures = [{hND: "Hnd1", gest: ["HandUp", jumptata]}, {hND: "Hnd2", gest: "HandUp"}];
       const mapGestures = [];
       hands.forEach((hand) => {
-        const GE = new fp.GestureEstimator([uSign, okSign, wSign, dragSign, fourSign]);
+        const GE = new fp.GestureEstimator([uSign, okSign, wSign, fistSign, fourFingerUpSign, fullHandUp, pinchSign ]);
 
         const gesturePrediction = GE.estimate(hand.keypoints3D, 9);
 
@@ -84,7 +87,6 @@ const App = () => {
       drawHand(hands, ctx);
     }
   };
-
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
