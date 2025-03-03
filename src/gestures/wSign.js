@@ -1,4 +1,6 @@
+//scroll up and scroll down
 import { Finger, FingerCurl, FingerDirection, GestureDescription } from 'fingerpose';
+
 
 export const wSign = new GestureDescription('W_SIGN');
 // [

@@ -1,3 +1,4 @@
+//drag the screen, mouse action is click and drag
 import { Finger, FingerCurl, FingerDirection } from "fingerpose";
 import { GestureDescription } from "fingerpose";
 
@@ -10,6 +11,7 @@ const pinchSign = new GestureDescription("PINCH_SIGN");
   * ["Ring","Full Curl","Diagonal Up Right"],
   * ["Pinky","Full Curl","Diagonal Up Right"]]
   */
+ 
 //Thumb
 pinchSign.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1.0)
 pinchSign.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 1.0);
