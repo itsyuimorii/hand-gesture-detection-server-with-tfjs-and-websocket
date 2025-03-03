@@ -9,13 +9,15 @@ export const fourFingerUpSign = new GestureDescription('FOUR_FINGER_UP');
 //Thumb
 fourFingerUpSign.addCurl(Finger.Thumb, FingerCurl.FullCurl, 1.0);
 fourFingerUpSign.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.9);
-fourFingerUpSign.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft,  0.9);
+fourFingerUpSign.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 0.9);
+fourFingerUpSign.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.9);
+
 
 //Index
 fourFingerUpSign.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0)
 fourFingerUpSign.addDirection(Finger.Index, FingerDirection.VerticalUp, 0.9);
 fourFingerUpSign.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.9);
-fourFingerUpSign.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft,  0.9);
+fourFingerUpSign.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 0.9);
 
 //Middle
 fourFingerUpSign.addCurl(Finger.Middle, FingerCurl.NoCurl, 1.0)
