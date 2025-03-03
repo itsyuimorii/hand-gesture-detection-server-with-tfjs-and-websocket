@@ -8,7 +8,7 @@ const fingerJoints = {
 
 //Drawing function
 export const drawHand = (predictions, ctx) => {
-  console.log("🚀 ~ predictions.forEach ~ keypoints:", predictions);
+  // console.log("🚀 ~ predictions.forEach ~ keypoints:", predictions);
 
   if (!predictions || predictions.length === 0) return;
   predictions.forEach((prediction) => {

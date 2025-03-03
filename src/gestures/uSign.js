@@ -31,9 +31,6 @@ uSign.addDirection(Finger.Middle, FingerDirection.DiagonalUpRight, 0.9);
 //Ring
 uSign.addCurl(Finger.Ring, FingerCurl.FullCurl, 1.0);
 uSign.addCurl(Finger.Ring, FingerCurl.HalfCurl, 0.9);
-uSign.addDirection(Finger.Ring, FingerDirection.VerticalUp, 1.0);
-uSign.addDirection(Finger.Ring, FingerDirection.DiagonalUpLeft, 0.9);
-uSign.addDirection(Finger.Ring, FingerDirection.DiagonalUpRight, 0.9);
 
 //Pinky
 uSign.addCurl(Finger.Pinky, FingerCurl.FullCurl, 1.0);
