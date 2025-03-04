@@ -76,7 +76,7 @@ const App = () => {
         console.log("💩💩💩💩💩💩💩💩💩 ~ JSON.stringify(gesturePrediction.poseData):", JSON.stringify(gesturePrediction.poseData))
         if (gesturePrediction.gestures.length > 0) {
           console.log("🦖🦖🦖🦖🦖🦖🦖🦖🦖🦖",hand)
-          mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures });
+          mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures, width: videoWidth, height: videoHeight });
         }
       });
 
