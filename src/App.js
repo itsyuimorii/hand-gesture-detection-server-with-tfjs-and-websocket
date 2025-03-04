@@ -71,10 +71,11 @@ const App = () => {
         const gesturePrediction = GE.estimate(hand.keypoints3D, 9);
 
 
-        // console.log("🚀 ~ hands.forEach ~ gesturePrediction:", gesturePrediction)
-        console.log("🔎 ~ Test:", JSON.stringify(gesturePrediction.gestures))
-        console.log("🚀 ~ hands.forEach ~ JSON.stringify(gesturePrediction.poseData):", JSON.stringify(gesturePrediction.poseData))
+        console.log("🦔🦔🦔🦔🦔🦔🦔🦔🦔~ hands.forEach ~ gesturePrediction:", gesturePrediction)
+        console.log("🧀🧀🧀🧀🧀🧀🧀🧀🧀 ~ Test:", JSON.stringify(gesturePrediction.gestures))
+        console.log("💩💩💩💩💩💩💩💩💩 ~ JSON.stringify(gesturePrediction.poseData):", JSON.stringify(gesturePrediction.poseData))
         if (gesturePrediction.gestures.length > 0) {
+          console.log("🦖🦖🦖🦖🦖🦖🦖🦖🦖🦖",hand)
           mapGestures.push({ hand: hand, gestures: gesturePrediction.gestures });
         }
       });
